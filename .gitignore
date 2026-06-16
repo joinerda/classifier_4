@@ -1,0 +1,14 @@
+.agents/
+.codex/
+__pycache__/
+*.pyc
+
+logs/
+runs/
+test_runs/
+
+pollen_query_*/
+*.zip
+*.tgz
+
+.gitrepo/
