@@ -1,5 +1,7 @@
 .agents/
 .codex/
+.claude/
+CONTEXT.md
 __pycache__/
 *.pyc
 
