@@ -31,6 +31,12 @@ module load APPTAINER
 cd "$SLURM_SUBMIT_DIR"
 mkdir -p logs
 
+ENV_FILE="${ENV_FILE:-$SLURM_SUBMIT_DIR/train_test_env.sh}"
+if [[ -f "$ENV_FILE" ]]; then
+  echo "[note] sourcing prepared env file: $ENV_FILE"
+  source "$ENV_FILE"
+fi
+
 IMAGE="${APPTAINER_IMAGE:-docker://pytorch/pytorch:2.1.2-cuda11.8-cudnn8-runtime}"
 WORKDIR="${SLURM_SUBMIT_DIR}"
 CODE_DIR="${CODE_DIR:-$WORKDIR/src}"

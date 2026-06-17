@@ -4,10 +4,13 @@
 CONTEXT.md
 __pycache__/
 *.pyc
+venv/
+.venv/
 
 logs/
 runs/
 test_runs/
+train_test_env.sh
 
 pollen_query_*/
 *.zip
