@@ -31,7 +31,16 @@ module load APPTAINER
 cd "$SLURM_SUBMIT_DIR"
 mkdir -p logs
 
-ENV_FILE="${ENV_FILE:-$SLURM_SUBMIT_DIR/train_test_env.sh}"
+ENV_FILE_ARG="${1:-}"
+if [[ -n "$ENV_FILE_ARG" ]]; then
+  if [[ "$ENV_FILE_ARG" = /* ]]; then
+    ENV_FILE="$ENV_FILE_ARG"
+  else
+    ENV_FILE="$SLURM_SUBMIT_DIR/$ENV_FILE_ARG"
+  fi
+else
+  ENV_FILE="${ENV_FILE:-$SLURM_SUBMIT_DIR/train_test_env.sh}"
+fi
 if [[ -f "$ENV_FILE" ]]; then
   echo "[note] sourcing prepared env file: $ENV_FILE"
   source "$ENV_FILE"

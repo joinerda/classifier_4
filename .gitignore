@@ -10,7 +10,7 @@ venv/
 logs/
 runs/
 test_runs/
-train_test_env.sh
+train_test_env*.sh
 
 pollen_query_*/
 *.zip
